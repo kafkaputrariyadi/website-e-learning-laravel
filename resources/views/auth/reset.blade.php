@@ -1,0 +1,101 @@
+{{-- File: resources/views/auth/reset.blade.php --}}
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMPN 3 Purwokerto - Reset Password</title>
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        {{-- Semua step tidak dikurangi, hanya disesuaikan --}}
+        <div class="step" id="step1">
+            <h2>Lupa Password?</h2>
+            <p>Silakan masukkan email Anda untuk mengatur ulang kata sandi</p>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Masukkan email" />
+            </div>
+
+            <button class="btn-primary" onclick="nextStep(2)">Reset Password</button>
+        </div>
+
+        <div class="step hidden" id="step2">
+            <h2>Cek email kamu</h2>
+            <p>Kami telah mengirimkan tautan reset ke <span id="emailDisplay">contact@dscode.com</span></p>
+            <p>Masukkan kode 5 digit yang disebutkan dalam email</p>
+
+            <div class="verification-code">
+                <input type="text" maxlength="1" class="code-input" />
+                <input type="text" maxlength="1" class="code-input" />
+                <input type="text" maxlength="1" class="code-input" />
+                <input type="text" maxlength="1" class="code-input" />
+                <input type="text" maxlength="1" class="code-input" />
+            </div>
+
+            <button class="btn-primary" onclick="verifyCode()">Verify Code</button>
+
+            <p class="resend-text">
+                Belum menerima kode?
+                <a href="#" onclick="resendCode()">Kirim ulang code</a>
+            </p>
+        </div>
+
+        <div class="step hidden" id="step3">
+            <h2>Pengaturan ulang kata sandi</h2>
+            <p>Kata sandi Anda telah berhasil diatur ulang.</p>
+            <p>Klik konfirmasi untuk mengatur kata sandi baru.</p>
+            <button class="btn-primary" onclick="nextStep(4)">Confirm</button>
+        </div>
+
+        <div class="step hidden" id="step4">
+            <h2>Tetapkan kata sandi baru</h2>
+            <p>Buat kata sandi baru. Pastikan kata sandi berbeda dari sebelumnya demi keamanan.</p>
+
+            <div class="form-group">
+                <label for="newPassword">Password</label>
+                <div class="password-input">
+                    <input type="password" id="newPassword" class="form-input" placeholder="Masukkan Password" />
+                    <span class="toggle-password" onclick="togglePassword('newPassword','iconNew')">
+                        <i id="iconNew" class="fa-solid fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="password-input">
+                    <input type="password" id="confirmPassword" class="form-input" placeholder="Masukkan Password" />
+                    <span class="toggle-password" onclick="togglePassword('confirmPassword','iconConfirm')">
+                        <i id="iconConfirm" class="fa-solid fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+
+            <button class="btn-primary" onclick="updatePassword()">Update Password</button>
+        </div>
+
+        <div class="step hidden" id="step5">
+            <h2>Kata sandi telah berhasil diubah</h2>
+            <div class="success-icon">
+                <div class="checkmark">✓</div>
+            </div>
+            <a href="{{ route('login') }}">
+                <div class="btn-primary" onclick="goToLogin()">Continue</div>
+            </a>
+        </div>
+    </div>
+
+    <div id="notification" class="notification hidden">
+        <span id="notificationMessage"></span>
+    </div>
+
+    <script src="{{ asset('js/reset.js') }}"></script>
+</body>
+
+</html>

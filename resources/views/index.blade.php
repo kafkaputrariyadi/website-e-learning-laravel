@@ -1,0 +1,97 @@
+{{-- File: resources/views/index.blade.php --}}
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMPN 3 Purwokerto - Learning Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="decoration"></div>
+        <div class="decoration"></div>
+        <div class="decoration"></div>
+
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap logo-icon"></i>
+                <span>SMPN 3 Purwokerto</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-buttons" id="navButtons">
+                <a href="{{ route('login') }}" class="btn btn-login">Login</a>
+
+                <a href="{{ route('register') }}" class="btn btn-register">Register</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="content-left">
+                <h1 class="title">
+                    <span class="learning">Learning</span> Management<br />
+                    System (LMS)
+                </h1>
+                <p class="description">
+                    Sebuah platform digital yang dirancang untuk mengelola, menyampaikan,
+                    dan memantau proses pembelajaran secara daring. LMS memungkinkan
+                    pengajar untuk mengunggah materi, memberikan tugas, mengelola ujian,
+                    serta memantau perkembangan belajar siswa secara efisien. Di sisi
+                    lain, siswa dapat mengakses materi kapan saja dan di mana saja,
+                    berinteraksi dengan pengajar maupun teman sekelas melalui forum atau
+                    chat, serta mengerjakan evaluasi secara online.
+                </p>
+                <p class="description-en">
+                    Web-based software used to manage online learning
+                </p>
+            </div>
+
+            <div class="content-right">
+                <div class="image-container">
+                    <img src="{{ asset('img/student.png') }}" alt="Student Learning" class="student-image"
+                        id="studentImage" />
+                </div>
+            </div>
+        </main>
+
+        <section class="features">
+            <h2 class="section-title">Fitur Utama LMS</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-book-open feature-icon"></i>
+                    <h3 class="feature-title">Materi Pembelajaran</h3>
+                    <p class="feature-desc">Akses materi pembelajaran kapan saja dan di mana saja</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-tasks feature-icon"></i>
+                    <h3 class="feature-title">Tugas & Kuis</h3>
+                    <p class="feature-desc">Kerjakan tugas dan kuis secara online dengan mudah</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-comments feature-icon"></i>
+                    <h3 class="feature-title">Forum Diskusi</h3>
+                    <p class="feature-desc">Berinteraksi dengan pengajar dan teman sekelas</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <h3 class="feature-title">Pemantauan Progress</h3>
+                    <p class="feature-desc">Pantau perkembangan belajar secara real-time</p>
+                </div>
+            </div>
+
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2025 SMPN 3 Purwokerto - Learning Management System. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ asset('js/Script.js') }}"></script>
+</body>
+
+</html>

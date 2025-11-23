@@ -1,38 +1,35 @@
-// script.js
+// dashboard.js
 
 function scrollProgress(direction) {
-    const container = document.querySelector('.progress-cards');
-    const scrollAmount = 350;
+    const container = document.querySelector(".progress-cards");
+    const scrollAmount = 300;
     container.scrollBy({
         left: direction * scrollAmount,
-        behavior: 'smooth'
+        behavior: "smooth",
     });
 }
 
 function openLesson(subject) {
-    alert('Membuka pelajaran: ' + subject);
-    // Ganti dengan navigasi atau modal sesuai kebutuhan
+    alert("Membuka pelajaran: " + subject);
 }
 
 function openSubject(subject) {
-    alert('Membuka mata pelajaran: ' + subject);
-    // Ganti dengan navigasi atau modal sesuai kebutuhan
+    alert("Membuka mata pelajaran: " + subject);
 }
 
 function openSchedule(subject) {
-    alert('Membuka jadwal: ' + subject);
-    // Ganti dengan navigasi atau modal sesuai kebutuhan
+    alert("Membuka jadwal: " + subject);
 }
 
-// Smooth scroll untuk anchor links
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+document.addEventListener("DOMContentLoaded", function () {
+    // Smooth scroll untuk anchor links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const target = document.querySelector(this.getAttribute("href"));
             if (target) {
                 target.scrollIntoView({
-                    behavior: 'smooth'
+                    behavior: "smooth",
                 });
             }
         });
